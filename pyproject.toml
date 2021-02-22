@@ -6,8 +6,8 @@ authors = ["bubblbu <asura.enkhbayar@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7.1"
-pandas = "^1.2.2"
+python = "^3.6.10"
+pandas = "~1.2"
 newspaper3k = "^0.2.8"
 feedparser = "^6.0.2"
 
