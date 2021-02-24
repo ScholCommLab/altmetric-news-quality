@@ -18,17 +18,18 @@ feeds = {
 
 dfs = []
 for venue, rss_feed in feeds.items():
-    feed = feedparser.parse(feeds["nyt"])
+    feed = feedparser.parse(rss_feed)
     articles = pd.DataFrame(feed["entries"])
-    articles["tags"] = articles.tags.map(
-        lambda x: [_["term"] for _ in x] if type(x) == list else None
-    )
     articles["venue"] = venue
-    dfs.append(
-        articles.head(samples_per_source)[
-            ["venue", "title", "link", "summary", "author", "published", "tags"]
-        ]
-    )
+    df = pd.DataFrame()
+    df = articles[["venue", "title", "link", "summary", "author", "published"]].copy()
+    if "tags" in articles.columns:
+        df["tags"] = articles["tags"]
+    else:
+        df["tags"] = None
+
+    df = df.sample(samples_per_source)
+    dfs.append(df)
 
 df = pd.concat(dfs, ignore_index=True)
 df.index.name = "id"
