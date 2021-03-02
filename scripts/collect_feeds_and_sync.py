@@ -7,8 +7,6 @@ from pathlib import Path
 import feedparser
 import pandas as pd
 
-DATA_DIR = "../data"
-
 
 class LogWriter:
     """
@@ -38,7 +36,8 @@ class LogWriter:
 
 def main():
     # data directory
-    data_dir = Path(DATA_DIR)
+    script_dir = Path(__file__).parent.absolute()
+    data_dir = script_dir.parent / "data"
     collection_dir = data_dir / "collection"
 
     # soad news sources
@@ -80,6 +79,9 @@ def main():
         # Write log entry
         n_new_entries = len(entries)
         log.update(ts, venue, n_new_entries, error_msg)
+
+        # Stdout for collection progress
+        print(f"{venue}: {len(old_entries)+len(entries)} articles (+{len(entries)})\n")
 
         # Append new articles to dataframe and write to disk
         output = (
