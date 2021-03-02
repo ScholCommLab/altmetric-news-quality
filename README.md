@@ -2,6 +2,26 @@
 
 > Code and Data
 
+## Installation
+
+This project uses poetry to manage its dependencies. Recommended (and supposedly easiest) way to get our code running:
+
+1. Get a copy of this repository on your machine and cd into the folder
+   1. `git clone git@github.com:ScholCommLab/altmetric-news-quality.git`
+   2. `cd altmetric-news-quality`
+2. Install [pyenv](https://github.com/pyenv/pyenv) to manage your python versions:
+   1. `pyenv install 3.8.2` 
+   2. `pyenv local 3.8.2` to set your local python version
+3. Install [poetry](https://python-poetry.org/) to install dependencies and manage the local virtualenv
+   1. `poetry install`
+   2. `poetry shell` to activate the virtualenv
+
+*Note:* Make sure to check out the `newspaper3k` [docs](https://github.com/codelucas/newspaper) as the installation might require some additional software installed on your system outside of the Python universe.
+
+*Another note:* On our RHEL machine, I had to also ensure that `libffi-devel` (`libffi-dev` on Ubuntu/Debian) is installed and recompile the Python distro (i.e., `pyenv uninstall 3.8.2` and then `pyenv install 3.8.2` again). Fun!
+
+Lastly, feel free to use the `requirements.txt` to install the requirements as you wish :) 
+
 ## Methodology
 
 Selected publications and their RSS feeds
