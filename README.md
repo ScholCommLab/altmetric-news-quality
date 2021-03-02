@@ -20,7 +20,11 @@ This project uses poetry to manage its dependencies. Recommended (and supposedly
 
 *Another note:* On our RHEL machine, I had to also ensure that `libffi-devel` (`libffi-dev` on Ubuntu/Debian) is installed and recompile the Python distro (i.e., `pyenv uninstall 3.8.2` and then `pyenv install 3.8.2` again). Fun!
 
-Lastly, feel free to use the `requirements.txt` to install the requirements as you wish :) 
+Lastly, feel free to use the `requirements.txt` to install the requirements as you wish :)
+
+## Running stuff
+
+Most of the scripts should just be fun to be run with `python name_of_script.py`. The daily collection script can also be run from a bash script which we used with a cronjob for automation.
 
 ## Methodology
 
