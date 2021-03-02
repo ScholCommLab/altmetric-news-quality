@@ -16,13 +16,15 @@ class LogWriter:
     def __init__(self, dir):
         self.file = dir / "log.csv"
         self.fieldnames = ["timestamp", "venue", "new_articles", "error"]
+        self.file_exists = self.file.exists()
 
     def update(self, ts, venue, new_articles, error_msg):
         with open(self.file, mode="a") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=self.fieldnames)
 
-            if not self.file.exists():
+            if not self.file_exists:
                 writer.writeheader()
+                self.file_exists = True
 
             writer.writerow(
                 {
@@ -32,6 +34,27 @@ class LogWriter:
                     "error": error_msg,
                 }
             )
+
+
+class SummaryWriter:
+    """
+    Helper class to write a summary the collection process
+    """
+
+    def __init__(self, dir, venue_names):
+        self.file = dir / "summary.csv"
+        self.fieldnames = venue_names
+        self.file_exists = self.file.exists()
+
+    def update(self, row):
+        with open(self.file, mode="a") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=self.fieldnames)
+
+            if not self.file_exists:
+                writer.writeheader()
+                self.file_exists = True
+
+            writer.writerow(row)
 
 
 def main():
@@ -47,6 +70,8 @@ def main():
     feed_urls = news_sources["feed_url"].tolist()
 
     log = LogWriter(collection_dir)
+    summary = SummaryWriter(collection_dir, ["ts"] + venue_names)
+    summary_row = {"ts": datetime.datetime.now()}
 
     # Iterate over each news source
     for venue, rss_feed in zip(venue_names, feed_urls):
@@ -81,7 +106,8 @@ def main():
         log.update(ts, venue, n_new_entries, error_msg)
 
         # Stdout for collection progress
-        print(f"{venue}: {len(old_entries)+len(entries)} articles (+{len(entries)})\n")
+        print(f"{venue}: {len(old_entries)+len(entries)} articles (+{len(entries)}), ")
+        summary_row[venue] = f"{len(old_entries)+len(entries)} (+{len(entries)})"
 
         # Append new articles to dataframe and write to disk
         output = (
@@ -95,6 +121,8 @@ def main():
             lines=True,
             date_format="iso",
         )
+
+    summary.update(summary_row)
 
 
 if __name__ == "__main__":
