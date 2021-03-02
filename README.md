@@ -39,6 +39,7 @@ After running the script for the collection timerange, we will normalize and mer
 
 1. Combine all six spreadsheets into a main dataframe with a unique identifier for each news article.
 2. Clean and extract tags for each article
+3. 
 
 ### Extract article content and mentioned URLs
 
