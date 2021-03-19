@@ -13,7 +13,8 @@ DATA_DIR = "../data"
 
 def collect_sample():
     # data directory
-    data_dir = Path(DATA_DIR)
+    script_dir = Path(__file__).parent.absolute()
+    data_dir = script_dir.parent / "data"
 
     # soad news sources
     news_sources = pd.read_csv(data_dir / "news_sources.csv")
@@ -30,7 +31,7 @@ def collect_sample():
         articles["venue"] = venue
         df = pd.DataFrame()
         df = articles[
-            ["venue", "title", "link", "summary", "author", "published"]
+            ["venue", "title", "link", "summary", "published"]
         ].copy()
         if "tags" in articles.columns:
             df["tags"] = articles["tags"]
