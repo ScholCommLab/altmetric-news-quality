@@ -1,6 +1,6 @@
 # altmetric-news-quality
 
-> Code and Data
+> Reproduction material and instructions
 
 ## Installation
 
