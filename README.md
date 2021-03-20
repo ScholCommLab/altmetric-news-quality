@@ -28,7 +28,7 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 ## Methodology
 
-Selected publications and their RSS feeds
+Selected publications and their RSS feeds.
 
 | Title | Short Name | Landing Page | RSS Feed |
 | --- | --- | --- | --- |
@@ -36,10 +36,15 @@ Selected publications and their RSS feeds
 | New York Times (science section) | nyt | https://www.nytimes.com/section/science | https://rss.nytimes.com/services/xml/rss/nyt/Science.xml |
 | The Guardian (science section) | guardian | https://www.theguardian.com/science | https://www.theguardian.com/science/rss |
 | Popular Science | popsci | https://www.popsci.com/ | https://www.popsci.com/arcio/rss/ |
+| HealthDay | healthday | https://consumer.healthday.com | https://consumer.healthday.com/feeds/feed.rss
+| News Medical | newsmed | https://www.news-medical.net/ | http://www.news-medical.net/syndication.axd?format=rss
+| MedPageToday | medpage | https://www.medpagetoday.com | https://www.medpagetoday.com/rss/headlines.xml
 | Scienceblogs | sciblogs | https://scienceblogs.com | https://scienceblogs.com/rss.xml |
 | Scienceline | sciline | https://scienceline.org | https://scienceline.org/feed |
 
-**Tentative collection timerange: March 1 - March 31**
+Note: Scienceblogs and Scienceline are not in the final collected dataset as they did not publish enough content during the data collection period.
+
+**Tentative collection period: March 1 - March 31**
 
 ### Daily RSS Feed Collection
 
