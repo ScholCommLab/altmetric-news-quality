@@ -30,14 +30,17 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 Selected publications and their RSS feeds
 
-| Title | Short Name | Landing Page | RSS Feed |
-| --- | --- | --- | --- |
-| Wired (science section) | wired | https://www.wired.com/category/science/ | https://www.wired.com/feed/category/science/latest/rss |
-| New York Times (science section) | nyt | https://www.nytimes.com/section/science | https://rss.nytimes.com/services/xml/rss/nyt/Science.xml |
-| The Guardian (science section) | guardian | https://www.theguardian.com/science | https://www.theguardian.com/science/rss |
-| Popular Science | popsci | https://www.popsci.com/ | https://www.popsci.com/arcio/rss/ |
-| Scienceblogs | sciblogs | https://scienceblogs.com | https://scienceblogs.com/rss.xml |
-| Scienceline | sciline | https://scienceline.org | https://scienceline.org/feed |
+| Title | Short Name | Landing Page | RSS Feed | Note |
+| --- | --- | --- | --- | --- |
+| Wired (science section) | wired | https://www.wired.com/category/science/ | https://www.wired.com/feed/category/science/latest/rss | |
+| New York Times (science section) | nyt | https://www.nytimes.com/section/science | https://rss.nytimes.com/services/xml/rss/nyt/Science.xml | |
+| The Guardian (science section) | guardian | https://www.theguardian.com/science | https://www.theguardian.com/science/rss |  |
+| Popular Science | popsci | https://www.popsci.com/ | https://www.popsci.com/arcio/rss/ | |
+| HealthDay | healthday | https://consumer.healthday.com | https://consumer.healthday.com/feeds/feed.rss | Added on 19.03.2021 |
+| News Medical | newsmed | https://www.news-medical.net/ | http://www.news-medical.net/syndication.axd?format=rss | Added on 19.03.2021 |
+| MedPageToday | medpage | https://www.medpagetoday.com | https://www.medpagetoday.com/rss/headlines.xml | Added on 19.03.2021 |
+| Scienceblogs | sciblogs | https://scienceblogs.com | https://scienceblogs.com/rss.xml | not publishing enough content |
+| Scienceline | sciline | https://scienceline.org | https://scienceline.org/feed | not publishing enough content |
 
 **Tentative collection timerange: March 1 - March 31**
 
