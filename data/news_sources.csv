@@ -2,7 +2,7 @@ name,short_name,url,feed_url
 Wired – Science,wired,https://www.wired.com/category/science/,https://www.wired.com/feed/category/science/latest/rss
 New York Times – Science,nyt,https://www.nytimes.com/section/science,https://rss.nytimes.com/services/xml/rss/nyt/Science.xml
 The Guardian – Science,guardian,https://www.theguardian.com/science,https://www.theguardian.com/science/rss
-Popular Science,popsci,https://www.popsci.com,https://www.popsci.com/arcio/rss/
+Popular Science,popsci,https://www.popsci.com,https://www.popsci.com/feed/
 HealthDay,healthday,https://consumer.healthday.com,https://consumer.healthday.com/feeds/feed.rss
 News Medical,newsmed,https://www.news-medical.net/,http://www.news-medical.net/syndication.axd?format=rss
 MedPageToday,medpage,https://www.medpagetoday.com,https://www.medpagetoday.com/rss/headlines.xml
