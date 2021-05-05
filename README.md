@@ -59,7 +59,7 @@ The following script was run as a cron job on our scholcommlab server during the
 
 This notebook can be used at any time to collect all tweets from the publications specified in `data/input/twitter_feeds.csv`.
 
-### Preprocess data from both channels
+### Preprocess URLs from RSS/Twitter
 
 `notebooks/process_channels.py`
 
@@ -68,7 +68,7 @@ This notebook processes each of the two collection processes (e.g., removal of d
 - `data/raw/cleaned_rss.csv`: All items that we identified in the RSS feeds of 6 publications
 - `data/raw/cleaned_twitter.csv`: All tweets from two publications that contained a URL to the publications
 
-### Collect metadata for articles
+### Process news articles
 
 `scripts/extract_content_and_urls.py`
 
@@ -96,7 +96,8 @@ Note: *MD* is meta data extracted from the page header by `newspaper`. *html* in
 
 This final notebook creates an output file `data/processes/articles.csv` with news articles published by all 8 sources during the collection period.
 
-### Final sampling
+### Filtering and sampling
+
+**TBA: Exclusion criteria for articles. E.g., Spanish articles in newsmed, publication dates, sections...**
 
 To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in `data/samples/`).
-
