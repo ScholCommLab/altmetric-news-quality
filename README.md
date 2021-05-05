@@ -41,7 +41,7 @@ This notebook can be used at any time to collect all tweets from the publication
 
 ### Preprocess URLs from RSS/Twitter
 
-[`notebooks/2_process_channels.py`](notebooks/2_process_channels.py)
+[`notebooks/2_process_channels.ipynb`](notebooks/2_process_channels.ipynb)
 
 This notebook processes each of the two collection processes (e.g., removal of duplicate items, removal of tweets without links) and creates two spreadsheets:
 
@@ -50,7 +50,7 @@ This notebook processes each of the two collection processes (e.g., removal of d
 
 ### Scrape news articles
 
-[`notebooks/3_scrape_articles.py`](notebooks/3_scrape_articles.py)
+[`notebooks/3_scrape_articles.ipynb`](notebooks/3_scrape_articles.ipynb)
 
 This script uses the previously created cleaned files to create a main spreadsheet with all collected URLs to news articles. Using a combination of meta tags on the publishers pages, custom HTML parsers adjusted to individual sources, and NLP-processing we collect a *publication date*, *section information*, *keywords*, *author information*, and a *title* for every article.
 
