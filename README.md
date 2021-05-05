@@ -28,7 +28,9 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 ## Methodology
 
-> **Collection period: March 1 - May 3**
+> **RSS collection: March 1 - May 3**
+> **Twitter collection: March 4**
+> **News metadata collection: March 5**
 
 A log of all decisions made before and during the data collection process can be found in the [Wiki](https://github.com/ScholCommLab/altmetric-news-quality/wiki).
 
