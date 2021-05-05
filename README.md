@@ -28,11 +28,13 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 ## Methodology
 
+> **Collection period: March 1 - May 3**
+
+A log of all decisions made before and during the data collection process can be found in the [Wiki](https://github.com/ScholCommLab/altmetric-news-quality/wiki).
+
 ### Raw Data Collection
 
 8 publications were selected to be collected through two possible distribution channels: RSS for those that maintain functioning feeds and Twitter for the rest.
-
-> **Collection period: March 1 - May 2**
 
 | Publication              | URL                                                                                | Channel | Details                                                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -49,15 +51,7 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 `scripts/collect_feeds_and_sync.py`
 
-The following script will run as a cron job on our scholcommlab server during the collection date range. New articles will be collected once per day. [`feedparser`](https://pythonhosted.org/feedparser/) is used to access the actual RSS feeds as the library helps to parse various RSS versions.
-
-For each of the six news sources:
-
-1. Download current snapshot of the feed
-2. Load saved articles
-3. Determine new ones by ID and publication date
-4. Write log entry with number of new articles and eventual error messages
-5. Append new articles to dataframe and save in `jsonl`
+The following script was run as a cron job on our scholcommlab server during the collection date range. [`feedparser`](https://pythonhosted.org/feedparser/) is used to access the actual RSS feeds as the library helps to parse various RSS versions.
 
 #### Twitter Feeds
 
@@ -104,4 +98,5 @@ This final notebook creates an output file `data/processes/articles.csv` with ne
 
 ### Final sampling
 
-To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in `data/samples/`). 
+To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in `data/samples/`).
+
