@@ -35,22 +35,22 @@ The following script was run as a cron job on our scholcommlab server during the
 
 #### Twitter Feeds
 
-`notebooks/download_twitter_feed.ipynb`
+`notebooks/1_download_twitter_feed.ipynb`
 
 This notebook can be used at any time to collect all tweets from the publications specified in `data/input/twitter_feeds.csv`.
 
 ### Preprocess URLs from RSS/Twitter
 
-`notebooks/process_channels.py`
+`notebooks/2_process_channels.py`
 
 This notebook processes each of the two collection processes (e.g., removal of duplicate items, removal of tweets without links) and creates two spreadsheets:
 
 - `data/raw/cleaned_rss.csv`: All items that we identified in the RSS feeds of 6 publications
 - `data/raw/cleaned_twitter.csv`: All tweets from two publications that contained a URL to the publications
 
-### Process news articles
+### Scrape news articles
 
-`scripts/extract_content_and_urls.py`
+`notebooks/3_scrape_articles.py`
 
 This script uses the previously created cleaned files to create a main spreadsheet with all collected URLs to news articles. Using a combination of meta tags on the publishers pages, custom HTML parsers adjusted to individual sources, and NLP-processing we collect a *publication date*, *section information*, *keywords*, *author information*, and a *title* for every article.
 
