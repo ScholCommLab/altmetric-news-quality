@@ -28,7 +28,11 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 
 ## Methodology
 
+### Raw Data Collection
+
 8 publications were selected to be collected through two possible distribution channels: RSS for those that maintain functioning feeds and Twitter for the rest.
+
+> **Collection period: March 1 - May 2**
 
 | Publication              | URL                                                                                | Channel | Details                                                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -40,11 +44,6 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 | HealthDay                | [https://consumer.healthday.com](https://consumer.healthday.com)                   | RSS     | [https://consumer.healthday.com/feeds/feed.rss](https://consumer.healthday.com/feeds/feed.rss)                       |
 | News Medical             | [https://www.news-medical.net/](https://www.news-medical.net/)                     | RSS     | [http://www.news-medical.net/syndication.axd?format=rss](http://www.news-medical.net/syndication.axd?format=rss)     |
 | MedPageToday             | [https://www.medpagetoday.com](https://www.medpagetoday.com)                       | RSS     | [https://www.medpagetoday.com/rss/headlines.xml](https://www.medpagetoday.com/rss/headlines.xml)                     |
-
-
-**Collection period: March 1 - May 2**
-
-### Raw Data Collection
 
 **RSS Feeds**
 
@@ -102,3 +101,7 @@ There are various caveats with each field mostly relating to the limitations of 
 Note: *MD* is meta data extracted from the page header by `newspaper`. *html* indicates content extracted from the page content. *nlp* indicates keyword extraction provided by `newspaper`. *authors* is a field extracted by `newspaper` heuristics.
 
 This final notebook creates an output file `data/processes/articles.csv` with news articles published by all 8 sources during the collection period.
+
+### Final sampling
+
+To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in `data/samples/`). 
