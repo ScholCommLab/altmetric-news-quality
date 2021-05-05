@@ -74,12 +74,12 @@ This notebook processes each of the two collection processes (e.g., removal of d
 
 This script uses the previously created cleaned files to create a main spreadsheet with all collected URLs to news articles. Using a combination of meta tags on the publishers pages, custom HTML parsers adjusted to individual sources, and NLP-processing we collect a *publication date*, *section information*, *keywords*, *author information*, and a *title* for every article.
 
-There are various caveats with each field mostly relating to the limitations of normalizing various classifications that are used differently across sources. Sources furthermore use different metadata specifications and standards.
+There are some caveats that need to be considered for each field due to the limitation and challenge of comparing various classifications used in different ways by news sources. While some might attempt to implement best-practices in terms of meta tags others only provide the bare minimum. Therefore, a few remarks for each collected field:
 
-- published: It is unclear how "published date" is used by some sources.
+- published: It is unclear how "published date" is used by some sources (published vs last-updated).
 - modified: Not available for three sources.
-- section: Again, hard to compare across sources as each source uses these labels differently. In the case of newsmed, only two major sections could be extracted which represent two different topical areas of the publication.
-- keywords: Differing granularities of keywords between articles, for some sources the keywords were replaced by tags, and for ifls and healthday the keywords are even derived from the article texts.
+- section: Difficult to compare across sources as each source uses their classifications differently. While some are quite comparable (guardian, nyt, wired), in the case of newsmed, the two available sections derive from their particular model of publication (i.e., "Medical News" & "Life Science News").
+- keywords: Again, similar challenges to keywords. However, for some sources the keywords were replaced by tags for a lack of other keywords. Once again, each source might be using tags and keywords differently in their own contexts. ifls and healthday did not provide any keywords or tags, however, using `newspaper` we could derive keywords from the text bodies.
 
 | Source    | published                  | modified                  | section            | keywords | author             |
 | --------- | -------------------------- | ------------------------- | ------------------ | -------- | ------------------ |
