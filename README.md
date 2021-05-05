@@ -45,7 +45,7 @@ Most of the scripts should just be fun to be run with `python name_of_script.py`
 | News Medical             | [https://www.news-medical.net/](https://www.news-medical.net/)                     | RSS     | [http://www.news-medical.net/syndication.axd?format=rss](http://www.news-medical.net/syndication.axd?format=rss)     |
 | MedPageToday             | [https://www.medpagetoday.com](https://www.medpagetoday.com)                       | RSS     | [https://www.medpagetoday.com/rss/headlines.xml](https://www.medpagetoday.com/rss/headlines.xml)                     |
 
-**RSS Feeds**
+#### RSS Feeds
 
 `scripts/collect_feeds_and_sync.py`
 
@@ -59,7 +59,7 @@ For each of the six news sources:
 4. Write log entry with number of new articles and eventual error messages
 5. Append new articles to dataframe and save in `jsonl`
 
-**Twitter Feeds**
+#### Twitter Feeds
 
 `notebooks/download_twitter_feed.ipynb`
 
