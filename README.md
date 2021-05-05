@@ -46,7 +46,7 @@ This notebook can be used at any time to collect all tweets from the publication
 This notebook processes each of the two collection processes (e.g., removal of duplicate items, removal of tweets without links) and creates two spreadsheets:
 
 - [`data/raw/cleaned_rss.csv`](data/raw/cleaned_rss.csv): All items that we identified in the RSS feeds of 6 publications
-- [`data/raw/cleaned_twitter.csv`](data/raw/cleaned_twitter.csv): All tweets from two publications that contained a URL to the publications
+- [`data/raw/cleaned_tweets.csv`](data/raw/cleaned_tweets.csv): All tweets from two publications that contained a URL to the publications
 
 ### Scrape news articles
 
