@@ -99,8 +99,6 @@ There are various caveats with each field mostly relating to the limitations of 
 | medpage   | MD.dc.date                 | ---                       | MD.sailthru.topcat | MD       | MD.sailthru.author |
 | healthday | MD.article.published\_time | MD.article.modified\_time | MD.article.section | nlp      | html               |
 
-*Note: MD is meta data extracted from the page header by `newspaper`*
-*Note: html indicates content extracted from the page content*
-*Note: nlp indicates keyword extraction provided by `newspaper`*
+Note: *MD* is meta data extracted from the page header by `newspaper`. *html* indicates content extracted from the page content. *nlp* indicates keyword extraction provided by `newspaper`. *authors* is a field extracted by `newspaper` heuristics.
 
 This final notebook creates an output file `data/processes/articles.csv` with news articles published by all 8 sources during the collection period.
