@@ -31,11 +31,11 @@ A log of all decisions made before and during the data collection process can be
 
 [`scripts/collect_feeds_and_sync.py`](scripts/collect_feeds_and_sync.py)
 
-The following script was run as a cron job on our scholcommlab server during the collection date range. [`feedparser`](https://pythonhosted.org/feedparser/) is used to access the actual RSS feeds as the library helps to parse various RSS versions.
+The following script was run as a cron job on our scholcommlab server during the collection date range. [`feedparser`](https://pythonhosted.org/feedparser/) is used to access the actual RSS feeds as the library helps to parse various RSS versions. It uses RSS feeds defined in [`data/input/rss_feeds.csv`](data/input/rss_feeds.csv).
 
 #### Twitter Feeds
 
-[`notebooks/1_download_twitter_feed.ipynb`](notebooks/1_download_twitter_feed.ipynb)
+[`notebooks/1_download_twitter.ipynb`](notebooks/1_download_twitter.ipynb)
 
 This notebook can be used at any time to collect all tweets from the publications specified in [`data/input/twitter_feeds.csv`](data/input/twitter_feeds.csv).
 
