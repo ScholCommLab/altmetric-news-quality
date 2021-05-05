@@ -22,31 +22,31 @@ This project uses poetry to manage its dependencies. Recommended (and supposedly
 
 Lastly, feel free to use the `requirements.txt` to install the requirements as you wish :)
 
-## Running stuff
+## Running stuff (UPDATE)
 
 Most of the scripts should just be fun to be run with `python name_of_script.py`. The daily collection script can also be run from a bash script which we used with a cronjob for automation.
 
 ## Methodology
 
-Selected publications and their RSS feeds.
+8 publications were selected to be collected through two possible distribution channels: RSS for those that maintain functioning feeds and Twitter for the rest.
 
-| Title | Short Name | Landing Page | RSS Feed |
-| --- | --- | --- | --- |
-| Wired (science section) | wired | https://www.wired.com/category/science/ | https://www.wired.com/feed/category/science/latest/rss |
-| New York Times (science section) | nyt | https://www.nytimes.com/section/science | https://rss.nytimes.com/services/xml/rss/nyt/Science.xml |
-| The Guardian (science section) | guardian | https://www.theguardian.com/science | https://www.theguardian.com/science/rss |
-| Popular Science | popsci | https://www.popsci.com/ | https://www.popsci.com/arcio/rss/ |
-| HealthDay | healthday | https://consumer.healthday.com | https://consumer.healthday.com/feeds/feed.rss
-| News Medical | newsmed | https://www.news-medical.net/ | http://www.news-medical.net/syndication.axd?format=rss
-| MedPageToday | medpage | https://www.medpagetoday.com | https://www.medpagetoday.com/rss/headlines.xml
-| Scienceblogs | sciblogs | https://scienceblogs.com | https://scienceblogs.com/rss.xml |
-| Scienceline | sciline | https://scienceline.org | https://scienceline.org/feed |
+| Publication              | URL                                                                                | Channel | Details                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
+| New York Times – Science | [https://www.nytimes.com/section/science](https://www.nytimes.com/section/science) | RSS     | [https://rss.nytimes.com/services/xml/rss/nyt/Science.xml](https://rss.nytimes.com/services/xml/rss/nyt/Science.xml) |
+| The Guardian – Science   | [https://www.theguardian.com/science](https://www.theguardian.com/science)         | RSS     | [https://www.theguardian.com/science/rss](https://www.theguardian.com/science/rss)                                   |
+| Wired – Science          | [https://www.wired.com/category/science/](https://www.wired.com/category/science/) | RSS     | [https://www.wired.com/feed/category/science/latest/rss](https://www.wired.com/feed/category/science/latest/rss)     |
+| Popular Science          | [https://www.popsci.com/](https://www.popsci.com/)                                 | Twitter | [https://twitter.com/PopSci](https://twitter.com/PopSci)                                                             |
+| IFLScience               | [https://www.iflscience.com/](https://www.iflscience.com/)                         | Twitter | [https://twitter.com/IFLScience](https://twitter.com/IFLScience)                                                     |
+| HealthDay                | [https://consumer.healthday.com](https://consumer.healthday.com)                   | RSS     | [https://consumer.healthday.com/feeds/feed.rss](https://consumer.healthday.com/feeds/feed.rss)                       |
+| News Medical             | [https://www.news-medical.net/](https://www.news-medical.net/)                     | RSS     | [http://www.news-medical.net/syndication.axd?format=rss](http://www.news-medical.net/syndication.axd?format=rss)     |
+| MedPageToday             | [https://www.medpagetoday.com](https://www.medpagetoday.com)                       | RSS     | [https://www.medpagetoday.com/rss/headlines.xml](https://www.medpagetoday.com/rss/headlines.xml)                     |
 
-Note: Scienceblogs and Scienceline are not in the final collected dataset as they did not publish enough content during the data collection period.
 
-**Tentative collection period: March 1 - March 31**
+**Collection period: March 1 - May 2**
 
-### Daily RSS Feed Collection
+### Raw Data Collection
+
+**RSS Feeds**
 
 `scripts/collect_feeds_and_sync.py`
 
@@ -60,23 +60,47 @@ For each of the six news sources:
 4. Write log entry with number of new articles and eventual error messages
 5. Append new articles to dataframe and save in `jsonl`
 
-### Merge and normalize results
+**Twitter Feeds**
 
-`scripts/merge_and_normalize.py`
+`notebooks/download_twitter_feed.ipynb`
 
-After running the script for the collection timerange, we will normalize and merge the six different RSS feed dumps. `feedparser` already helps to a certain degree, however
+This notebook can be used at any time to collect all tweets from the publications specified in `data/input/twitter_feeds.csv`.
 
-1. Combine all six spreadsheets into a main dataframe with a unique identifier for each news article.
-2. Clean and extract tags for each article
-3. 
+### Preprocess data from both channels
 
-### Extract article content and mentioned URLs
+`notebooks/process_channels.py`
+
+This notebook processes each of the two collection processes (e.g., removal of duplicate items, removal of tweets without links) and creates two spreadsheets:
+
+- `data/raw/cleaned_rss.csv`: All items that we identified in the RSS feeds of 6 publications
+- `data/raw/cleaned_twitter.csv`: All tweets from two publications that contained a URL to the publications
+
+### Collect metadata for articles
 
 `scripts/extract_content_and_urls.py`
 
-1. Extract article content for each article and save the HTML representation
-   1. Use `newspaper3k` to download and parse each news article
-   2. For Popular Science we have to extract the HTML directly from its RSS feed
-2. Save each article as a separate HTML file organized by folders for each news source.
-3. Extract mentioned URLs for each news article and save into a seperate table for mentioned content.
-   1. Columns: `article_id`, `url`
+This script uses the previously created cleaned files to create a main spreadsheet with all collected URLs to news articles. Using a combination of meta tags on the publishers pages, custom HTML parsers adjusted to individual sources, and NLP-processing we collect a *publication date*, *section information*, *keywords*, *author information*, and a *title* for every article.
+
+There are various caveats with each field mostly relating to the limitations of normalizing various classifications that are used differently across sources. Sources furthermore use different metadata specifications and standards.
+
+- published: It is unclear how "published date" is used by some sources.
+- modified: Not available for three sources.
+- section: Again, hard to compare across sources as each source uses these labels differently. In the case of newsmed, only two major sections could be extracted which represent two different topical areas of the publication.
+- keywords: Differing granularities of keywords between articles, for some sources the keywords were replaced by tags, and for ifls and healthday the keywords are even derived from the article texts.
+
+| Source    | published                  | modified                  | section            | keywords | author             |
+| --------- | -------------------------- | ------------------------- | ------------------ | -------- | ------------------ |
+| guardian  | MD.article.published\_time | MD.article.modified\_time | MD.article.section | MD       | authors            |
+| nyt       | MD.article.published\_time | MD.article.modified\_time | MD.article.section | MD       | authors            |
+| wired     | html                       | ---                       | html               | MD       | MD.author          |
+| popsci    | MD.article.published\_time | MD.article.modified\_time | html               | html     | authors            |
+| ifls      | html                       | ---                       | html               | nlp      | html               |
+| newsmed   | MD.article.published\_time | MD.article.modified\_time | html               | MD       | html               |
+| medpage   | MD.dc.date                 | ---                       | MD.sailthru.topcat | MD       | MD.sailthru.author |
+| healthday | MD.article.published\_time | MD.article.modified\_time | MD.article.section | nlp      | html               |
+
+*Note: MD is meta data extracted from the page header by `newspaper`*
+*Note: html indicates content extracted from the page content*
+*Note: nlp indicates keyword extraction provided by `newspaper`*
+
+This final notebook creates an output file `data/processes/articles.csv` with news articles published by all 8 sources during the collection period.
