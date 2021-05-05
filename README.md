@@ -29,28 +29,28 @@ A log of all decisions made before and during the data collection process can be
 
 #### RSS Feeds
 
-`scripts/collect_feeds_and_sync.py`
+[`scripts/collect_feeds_and_sync.py`](scripts/collect_feeds_and_sync.py)
 
 The following script was run as a cron job on our scholcommlab server during the collection date range. [`feedparser`](https://pythonhosted.org/feedparser/) is used to access the actual RSS feeds as the library helps to parse various RSS versions.
 
 #### Twitter Feeds
 
-`notebooks/1_download_twitter_feed.ipynb`
+[`notebooks/1_download_twitter_feed.ipynb`](notebooks/1_download_twitter_feed.ipynb)
 
-This notebook can be used at any time to collect all tweets from the publications specified in `data/input/twitter_feeds.csv`.
+This notebook can be used at any time to collect all tweets from the publications specified in [`data/input/twitter_feeds.csv`](data/input/twitter_feeds.csv).
 
 ### Preprocess URLs from RSS/Twitter
 
-`notebooks/2_process_channels.py`
+[`notebooks/2_process_channels.py`](notebooks/2_process_channels.py)
 
 This notebook processes each of the two collection processes (e.g., removal of duplicate items, removal of tweets without links) and creates two spreadsheets:
 
-- `data/raw/cleaned_rss.csv`: All items that we identified in the RSS feeds of 6 publications
-- `data/raw/cleaned_twitter.csv`: All tweets from two publications that contained a URL to the publications
+- [`data/raw/cleaned_rss.csv`](data/raw/cleaned_rss.csv): All items that we identified in the RSS feeds of 6 publications
+- [`data/raw/cleaned_twitter.csv`](data/raw/cleaned_twitter.csv): All tweets from two publications that contained a URL to the publications
 
 ### Scrape news articles
 
-`notebooks/3_scrape_articles.py`
+[`notebooks/3_scrape_articles.py`](notebooks/3_scrape_articles.py)
 
 This script uses the previously created cleaned files to create a main spreadsheet with all collected URLs to news articles. Using a combination of meta tags on the publishers pages, custom HTML parsers adjusted to individual sources, and NLP-processing we collect a *publication date*, *section information*, *keywords*, *author information*, and a *title* for every article.
 
@@ -74,13 +74,13 @@ There are some caveats that need to be considered for each field due to the limi
 
 Note: *MD* is meta data extracted from the page header by `newspaper`. *html* indicates content extracted from the page content. *nlp* indicates keyword extraction provided by `newspaper`. *authors* is a field extracted by `newspaper` heuristics.
 
-This final notebook creates an output file `data/processes/articles.csv` with news articles published by all 8 sources during the collection period.
+This final notebook creates an output file [`data/processes/articles.csv`](data/processes/articles.csv) with news articles published by all 8 sources during the collection period.
 
 ### Filtering and sampling
 
 **TBA: Exclusion criteria for articles. E.g., Spanish articles in newsmed, publication dates, sections...**
 
-To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in `data/samples/`).
+To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in [`data/samples/`](data/samples/)).
 
 ## Reproduction
 
