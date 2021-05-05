@@ -61,7 +61,7 @@ def main():
     # data directory
     script_dir = Path(__file__).parent.absolute()
     data_dir = script_dir.parent / "data"
-    collection_dir = data_dir / "collection"
+    collection_dir = data_dir / "rss"
 
     # soad news sources
     news_sources = pd.read_csv(data_dir / "news_sources.csv")
