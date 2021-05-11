@@ -76,11 +76,22 @@ Note: *MD* is meta data extracted from the page header by `newspaper`. *html* in
 
 This final notebook creates an output file [`data/processes/articles.csv`](data/processes/articles.csv) with news articles published by all 8 sources during the collection period.
 
-### Filtering and sampling
+### Postprocessing
 
-**TBA: Exclusion criteria for articles. E.g., Spanish articles in newsmed, publication dates, sections...**
+[`notebooks/4_postprocessing.ipynb`](notebooks/4_postprocessing.ipynb)
 
-To create the final dataset with articles that were coded, we sampled *TBD* articles from each source and had to exclude articles that were previously used for several intercoder samples (all samples can be found in [`data/samples/`](data/samples/)).
+The collected articles are then filtered based on few exclusion criteria:
+
+Articles are *excluded* if:
+
+- they have been published before Mar 1 or after Apr 30 
+- they are in Spanish
+- they have been used in previous samples
+- they were not successfully parsed by `newspaper`
+
+The final dataset contains **5,393 articles** with the following breakdown:
+
+![filtered_articles.png](filtered_articles.png)
 
 ## Reproduction
 
