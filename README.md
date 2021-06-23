@@ -89,7 +89,7 @@ Articles are *excluded* if:
 - they have been used in previous samples
 - they were not successfully parsed by `newspaper`
 
-The final dataset contains **5,393 articles** with the following breakdown:
+The final dataset contains **5,172 articles** with the following breakdown:
 
 ![filtered_articles.png](filtered_articles.png)
 
