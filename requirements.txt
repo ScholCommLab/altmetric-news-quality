@@ -512,9 +512,9 @@ regex==2020.11.13 \
 requests-file==1.5.1; python_version >= "3.5" \
     --hash=sha256:07d74208d3389d01c38ab89ef403af0cfec63957d53a0081d8eca738d0247d8e \
     --hash=sha256:dfe5dae75c12481f68ba353183c53a65e6044c923e64c24b2209f6c7570ca953
-requests==2.15.1; python_version >= "3.5" and python_full_version >= "3.6.0" \
-    --hash=sha256:ff753b2196cd18b1bbeddc9dcd5c864056599f7a7d9a4fb5677e723efa2b7fb9 \
-    --hash=sha256:e5659b9315a0610505e050bb7190bf6fa2ccee1ac295f2b760ef9d8a03ebbb2e
+requests==2.31.0; python_version >= "3.5" and python_full_version >= "3.6.0" \
+    --hash=sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f \
+    --hash=sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1
 schedule==1.1.0; python_version >= "3.6" and python_full_version >= "3.6.0" \
     --hash=sha256:617adce8b4bf38c360b781297d59918fbebfb2878f1671d189f4f4af5d0567a4 \
     --hash=sha256:e6ca13585e62c810e13a08682e0a6a8ad245372e376ba2b8679294f377dfc8e4
